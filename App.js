@@ -9,12 +9,20 @@
 
 import React, {Component} from 'react';
 import Routes from './app.routing'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
+import friendReducer from './redux/friend.reducer'
+
+const store = createStore(friendReducer)
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <Routes/>
+      <Provider store={store}>
+        <Routes/>
+      </Provider>
     );
   }
 }
